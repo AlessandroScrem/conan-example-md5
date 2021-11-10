@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8.12)
 project(MD5Encrypter)
 
+set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR} ${CMAKE_MODULE_PATH})
+
 if(CMAKE_VERSION VERSION_LESS 3.0.0)
     include(CheckCXXCompilerFlag)
     check_cxx_compiler_flag(-std=c++11 COMPILER_SUPPORTS_CXX11)
@@ -14,9 +16,7 @@ else()
     SET(CMAKE_CXX_STANDARD 11)
     SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 endif()
-
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
+find_package(Poco REQUIRED)
 
 add_executable(md5 md5.cpp)
-target_link_libraries(md5 ${CONAN_LIBS})
+target_link_libraries(md5 Poco::Poco)
