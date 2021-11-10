@@ -27,7 +27,7 @@ jobs:
         pip install conan
         mkdir build
         cd build
-        conan install .. -s compiler=libstdc++11
+        conan install .. -s compiler.libcxx=libstdc++11
  
     - name: Configure
       run: |
