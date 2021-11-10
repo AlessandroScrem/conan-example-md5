@@ -25,6 +25,7 @@ jobs:
         python -m venv venv
         source venv/bin/activate
         pip install conan
+        conan profile update settings.compiler.libcxx=libstdc++11 default
         mkdir build
         cd build
         conan install ..
