@@ -1,4 +1,4 @@
-name: Build
+name: Build linux
 
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest]
+        os: [ubuntu-latest]
     defaults:
       run:
         shell: bash -l {0}
@@ -30,9 +30,9 @@ jobs:
     - name: Configure
       run: |
         cd build
-        cmake .. -G "Visual Studio 16 2019"
+        cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
       run: |
         cd build
-        cmake --build . --config Release
+        cmake --build .
