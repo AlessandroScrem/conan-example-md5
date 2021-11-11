@@ -17,7 +17,7 @@ jobs:
             CMAKE_BUILD_:   'cmake --build .'
             
           - os:  macos-latest
-            CONAN-INSTALL_: 'conan install .. -s compiler.libcxx=libstdc++11'
+            CONAN-INSTALL_: 'conan install .. -s compiler.libcxx=libstdc++'
             CMAKE_CONFIG_:  'cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release'
             CMAKE_BUILD_:   'cmake --build .'
 
