@@ -42,7 +42,7 @@ jobs:
         pip3 install wheel setuptools
         pip3 install conan --upgrade
     
-    -name: Setup conan
+    - name: Setup conan
       run: |
         mkdir build
         cd build
