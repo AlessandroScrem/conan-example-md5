@@ -35,11 +35,14 @@ jobs:
     - name: Setup python 
       uses: actions/setup-python@v2
     
-    - name: Setup conan 
+    - name: Install conan 
       run: |
         python -m venv venv
         source venv/bin/activate
         pip install conan
+    
+    -name: Setup conan
+      run: |
         mkdir build
         cd build
         ${{matrix.CONAN-INSTALL_}}
