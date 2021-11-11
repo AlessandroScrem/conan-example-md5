@@ -12,16 +12,19 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
+          
             CONAN-INSTALL_: 'conan install .. -s compiler.libcxx=libstdc++11'
             CMAKE_CONFIG_:  'cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release'
             CMAKE_BUILD_:   'cmake --build .'
             
           - os:  macos-latest
+          
             CONAN-INSTALL_: 'conan install .. --build=missing -s compiler.libcxx=libstdc++'
             CMAKE_CONFIG_:  'cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release'
             CMAKE_BUILD_:   'cmake --build .'
 
           - os: windows-latest
+          
             CONAN-INSTALL_: 'conan install ..'
             CMAKE_CONFIG_:  'cmake .. -G "Visual Studio 16 2019"'
             CMAKE_BUILD_:   'cmake --build . --config Release'
