@@ -36,15 +36,12 @@ jobs:
     - name: Setup python 
       uses: actions/setup-python@v2
     
-    - name: Install conan 
+    - name: Setup conan 
       run: |
         python -m venv venv
         source venv/bin/activate
         pip3 install wheel setuptools
         pip3 install conan --upgrade
-    
-    - name: Setup conan
-      run: |
         mkdir build
         cd build
         ${{matrix.CONAN-INSTALL_}}
